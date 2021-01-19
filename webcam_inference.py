@@ -8,7 +8,6 @@ inf_model = load_learner('model/sign_language.pkl')
 print('Model Loaded')
 
 def hand_area(img):
-    # img = cv2.flip(img, flipCode = 1)
     # specify where hand should go
     hand = img[50:324, 50:324]
     # the images in the model were trainind on 200x200 pixels
@@ -25,7 +24,7 @@ frame_height = int(cap.get(4))
 
 # define codec and create our VideoWriter to save the video
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('output/sign-language.mp4', fourcc, 10, (frame_width, frame_height))
+out = cv2.VideoWriter('output/sign-language.mp4', fourcc, 12, (frame_width, frame_height))
 
 
 # read video
