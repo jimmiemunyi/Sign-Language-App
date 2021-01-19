@@ -1,5 +1,6 @@
-import cv2
+from collections import deque, Counter
 
+import cv2
 from fastai.vision.all import *
 
 print('Loading our Inference model...')
@@ -7,7 +8,19 @@ print('Loading our Inference model...')
 inf_model = load_learner('model/sign_language.pkl')
 print('Model Loaded')
 
+
+# define a deque to get rolling average of predictions
+# I go with the last 20 predictions
+rolling_predictions = deque([], maxlen=10)
+
+# get the most common item in the deque
+def most_common(D):
+    data = Counter(D)
+    return data.most_common(1)[0][0]
+
+
 def hand_area(img):
+    # img = cv2.flip(img, flipCode = 1)
     # specify where hand should go
     hand = img[50:324, 50:324]
     # the images in the model were trainind on 200x200 pixels
@@ -41,10 +54,14 @@ while True:
     # get the image
     inference_image = hand_area(frame)
 
-    # get the prediction on the hand
+    # get the current prediction on the hand
     pred = inf_model.predict(inference_image)
+    # append the current prediction to our rolling predictions
+    rolling_predictions.append(pred[0])
 
-    prediction_output = f'The predicted letter is {pred[0]}'
+    # our prediction is going to be the most common letter
+    # in our rolling predictions
+    prediction_output = f'The predicted letter is {most_common(rolling_predictions)}'
 
     # show predicted text
     cv2.putText(frame, prediction_output, (10, 350), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 0, 0), 2)
