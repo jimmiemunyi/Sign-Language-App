@@ -10,7 +10,7 @@ print('Model Loaded')
 
 
 # define a deque to get rolling average of predictions
-# I go with the last 20 predictions
+# I go with the last 10 predictions
 rolling_predictions = deque([], maxlen=10)
 
 # get the most common item in the deque
@@ -20,7 +20,6 @@ def most_common(D):
 
 
 def hand_area(img):
-    # img = cv2.flip(img, flipCode = 1)
     # specify where hand should go
     hand = img[50:324, 50:324]
     # the images in the model were trainind on 200x200 pixels
