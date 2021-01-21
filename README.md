@@ -1,6 +1,10 @@
 # Sign Language Classification
 
-This repo contains code to train a Neural Network on the [American Sign Language Dataset](https://www.kaggle.com/grassknoted/asl-alphabet) on Kagggle.
+Sample Output of the code:
+
+![sample-output](https://github.com/jimmiemunyi/Sign-Language-App/blob/main/readme-gif/sign-language-okay.gif)
+
+This repo contains code to train a Neural Network on the [American Sign Language Dataset](https://www.kaggle.com/grassknoted/asl-alphabet) on Kaggle.
 
 The training notebook can be found in the **training** folder. There is also an [blog post here][] about how to train the model by me.
 
