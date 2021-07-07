@@ -35,14 +35,14 @@ frame_width = int(cap.get(3))
 frame_height = int(cap.get(4))
 
 # define codec and create our VideoWriter to save the video
-fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('output/sign-language.mp4', fourcc, 12, (frame_width, frame_height))
+# fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+# out = cv2.VideoWriter('output/sign-language.mp4', fourcc, 12, (frame_width, frame_height))
 
 
 # read video
 while True:
     # capture each frame of the video
-    ret, frame = cap.read()
+    _, frame = cap.read()
 
     # flip frame to feel more 'natural' to webcam
     frame = cv2.flip(frame, flipCode = 1)
@@ -67,7 +67,7 @@ while True:
     # show the frame
     cv2.imshow('frame', frame)
     # save the frames to out file
-    out.write(frame)
+    # out.write(frame)
 
 
     # press `q` to exit
