@@ -77,6 +77,6 @@ while True:
 # release VideoCapture()
 cap.release()
 # release out file
-out.release()
+# out.release()
 # close all frames and video windows
 cv2.destroyAllWindows()
