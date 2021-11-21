@@ -6,6 +6,9 @@ Sample Output of the code:
 
 This repo contains code to train a Neural Network on the [American Sign Language Dataset](https://www.kaggle.com/grassknoted/asl-alphabet) on Kaggle.
 
+Download the model from [here](https://drive.google.com/drive/folders/1s71zmL-nG9IPm9Jpl1EynRpXGG-uxQWN?usp=sharing)
+and place it in the `model/` folder. That is where our code expects it to be.
+
 The training notebook can be found in the **training** folder. 
 
 There is also an [blog for training the model](https://jimmiemunyi.github.io/blog/tutorial/2021/01/20/Sign-Language-Classification-with-Deep-Learning.html) and one for [making the inference app](https://jimmiemunyi.github.io/blog/projects/tutorial/2021/01/21/Sign-Language-Inference-with-WebCam.html).
